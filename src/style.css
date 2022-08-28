@@ -1,0 +1,80 @@
+:root {
+  --main-red: red;
+  --size-small: 40px;
+  --sidebar-width: 250px;
+  --silver: rgb(238, 235, 235);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html, body, .wrapper {
+  height: 100%;
+}
+
+/* NAV-BAR */
+
+.nav-bar {
+  background: var(--main-red);
+  height: var(--size-small);
+}
+
+/* APP container */
+.app-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SIDEBAR */
+
+
+.side-bar {
+  height: 100%;
+  background-color: var(--silver);
+  left: 0px;
+  width: var(--sidebar-width);
+  position: fixed;
+  transition: left .25s cubic-bezier(.4,0,.2,1);
+}
+
+.main-content {
+  display: flex;
+  height: 100%;
+  width: calc(90% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+  align-self: center;
+}
+
+.main-content p {
+}
+
+.wrapper .side-bar {
+}
+
+.side-bar ul {
+  list-style: none;
+  padding: 30px;
+  line-height: 30px;
+  padding-left: 40px;
+}
+
+.side-bar ul li:hover {
+  cursor: pointer;
+}
+
+/* DYNAMIC SIDEBAR */
+
+.wrapper.active .side-bar {
+  left: calc(var(--sidebar-width) * -1);
+}
+
+.wrapper.active .main-content {
+  width: 90%;
+  margin-left: 0;
+}
+
+/* MAIN CONTENT */
