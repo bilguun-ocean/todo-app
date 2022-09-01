@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400&display=swap');
+
+
 :root {
   --main-red: red;
   --size-small: 40px;
@@ -9,6 +12,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: 'JetBrains Mono','Courier New', Courier, monospace; 
 }
 
 html, body, .wrapper {
@@ -20,8 +24,23 @@ html, body, .wrapper {
 .nav-bar {
   background: var(--main-red);
   height: var(--size-small);
+  display: flex;
+  gap: 20px;
+  color: white;
+  align-items: center;
 }
 
+/* header */
+.header {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+.logo-image {
+  height: 25px;
+  filter: invert(98%) sepia(0%) saturate(195%) hue-rotate(208deg) brightness(106%) contrast(101%);
+}
 /* APP container */
 .app-content {
   height: 100%;
@@ -47,6 +66,7 @@ html, body, .wrapper {
   width: calc(90% - var(--sidebar-width));
   margin-left: var(--sidebar-width);
   align-self: center;
+  overflow: auto;
 }
 
 .main-content p {
@@ -67,9 +87,12 @@ html, body, .wrapper {
 }
 
 /* DYNAMIC SIDEBAR */
-
 .wrapper.active .side-bar {
   left: calc(var(--sidebar-width) * -1);
+}
+
+.hamburger .hamburger-button {
+  color: white;
 }
 
 .wrapper.active .main-content {
@@ -78,3 +101,21 @@ html, body, .wrapper {
 }
 
 /* MAIN CONTENT */
+
+.wrapper {
+  overflow: hidden;
+}
+
+
+/* MOBILE LAYOUT */
+
+@media only screen and (max-width: 600px) {
+  .wrapper .side-bar {
+    z-index: 1;
+  }
+
+  .wrapper .main-content {
+    margin-left: 0;
+    width: 90%;
+  }
+}
